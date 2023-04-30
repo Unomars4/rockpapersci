@@ -1,32 +1,50 @@
 const CHOICES = ["rock", "paper", "scissors"];
-let playerChoice = CHOICES[0];
-let computerChoice = getComputerChoice();
 
 
-console.log(playRound(playerChoice, computerChoice));
+function game(){
+    let playerWins = 0, computerWins = 0, roundWinner = 0;
+    let playerChoice = prompt("Rock, Paper or Scissors").toLowerCase;
+    let computerChoice = getComputerChoice();
+
+    for (let i = 0; i < 5; i++) {
+        console.log(`Round ${i + 1}:`);
+        roundWinner = playRound(playerChoice, computerChoice);
+        if (roundWinner == 1) {
+            console.log(`You win! `);
+            playerWins += 1;
+        }
+        else if (roundWinner == 2) {
+            console.log(`You lose! `);
+            computerWins += 1;
+        }
+        else{
+            console.log(`It's a tie!`);
+        }
+    }
+}
 
 
 function playRound(playerSelection, computerSelection){
     if (playerSelection == CHOICES[0] && computerSelection == CHOICES[1]){
-        return `You lose! Paper beats Rock`;
+        return 2;
     }
     else if (playerSelection == CHOICES[1] && computerSelection == CHOICES[0]){
-        return `You Win! Paper beats Rock`;
+        return 1;
     }
     else if (playerSelection == CHOICES[1] && computerSelection == CHOICES[2]){
-        return `You lose! Scissors beats Paper`;
+        return 2;
     }
     else if (playerSelection == CHOICES[2] && computerSelection == CHOICES[1]){
-        return `You Win! Scissors beats Paper`;
+        return 1;
     }
     else if (playerSelection == CHOICES[0] && computerSelection == CHOICES[2]){
-        return `You Win! Rock beats Scissors`;
+        return 1;
     }
     else if (playerSelection == CHOICES[2] && computerSelection == CHOICES[0]){
-        return `You lose! Rock beats Scissors`;
+        return 2;
     }
     else {
-        return `It's a draw. You both chose ${playerSelection}`;
+        return 0;
     }
 }
 
