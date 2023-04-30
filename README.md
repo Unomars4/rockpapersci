@@ -1,0 +1,1 @@
+A simple for implementation of the grade-school game rock paper scissors.
