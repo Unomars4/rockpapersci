@@ -1,42 +1,42 @@
+const choiceBtn = Array.from(document.querySelectorAll(".choice"));
 const CHOICES = ["rock", "paper", "scissors"];
+let playerScore = 0, computerScore = 0, 
+playerEl = document.querySelector(".playerScore"),
+aiEl = document.querySelector(".computerScore");
 
-console.log(game());
+displayScore(playerEl, playerScore);
+displayScore(aiEl, computerScore);
 
-function game(){
-    let computerChoice, playerChoice, playerWins = 0, computerWins = 0, roundWinner = 0;
-
-    for (let i = 0; i < 5; i++) {
-        do {
-            playerChoice = prompt("Rock, Paper or Scissors").toLowerCase();
-        }while (validInput(playerChoice));
-        computerChoice = getComputerChoice();
+choiceBtn.forEach((choice) => {
+    choice.addEventListener("click", (e) => {
+        let playerChoice = e.target.value, computerChoice = getComputerChoice();
+        
         roundWinner = playRound(playerChoice, computerChoice);
+        
         switch (roundWinner) {
             case 1:
-                console.log(`You win! Round:${i+1}`);
-                playerWins++;
+                logActions(`You win this round`);
+                playerScore++;
+                displayScore(playerEl, playerScore);                
                 break;
             case 2:
-                console.log(`You lose! Round:${i+1}`);
-                computerWins++;
+                logActions(`You lose this round`);
+                computerScore++;
+                displayScore(aiEl, computerScore);
                 break;
             default:
-                console.log(`It's a tie! Round:${i+1}`);
+                logActions(`It's a tie this round`);
                 break;    
+        }
+        
+        if (playerScore == 5){
+            logActions(`You won the game. ${playerScore} - ${computerScore}`);
+        }
+        else if (computerScore == 5){
+            logActions(`You lost the game. ${playerScore} - ${computerScore}`);
         } 
-    }
-
-    if (playerWins > computerWins){
-        return `You won the game. ${playerWins} - ${computerWins}`;
-    }
-    else if (playerWins < computerWins){
-        return `You lost the game. ${playerWins} - ${computerWins}`;
-    }
-    else{
-        return `You both drew. ${playerWins} - ${computerWins}`;
-    }
-}
-
+    });
+});
 
 function playRound(playerSelection, computerSelection){
     if (playerSelection == CHOICES[0] && computerSelection == CHOICES[1]){
@@ -62,14 +62,18 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-function validInput(word){
-    for (let i = 0, max = CHOICES.length; i < max; i++){
-        if (word == CHOICES[i]) return false;
-    }
-    return true;
+function logActions(message) {
+    const p = document.createElement("p");
+    const display = document.querySelector(".actions");
+    p.textContent = `${message}`;
+    p.classList.add("action");
+    display.appendChild(p);
 }
 
 function getComputerChoice(){
     return CHOICES[Math.floor(Math.random() * 10 % 3)];    
 }
 
+function displayScore(scoreOf, score){
+    scoreOf.textContent = `${score}`;
+}

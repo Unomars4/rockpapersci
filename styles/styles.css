@@ -1,0 +1,18 @@
+:root{
+    font-size: 1vw * 0.5em;
+}
+
+.label{
+    font-size: 1rem;
+}
+
+.actions {
+    border: 1px solid Black;
+    border-radius: 0.8em;
+    margin-top: 2em;
+}
+
+.action {
+    padding: 0 1em;
+    font-style: italic;
+}
