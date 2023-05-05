@@ -16,3 +16,10 @@
     padding: 0 1em;
     font-style: italic;
 }
+
+.scores {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

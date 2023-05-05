@@ -15,25 +15,20 @@ choiceBtn.forEach((choice) => {
         
         switch (roundWinner) {
             case 1:
-                logActions(`You win this round`);
                 playerScore++;
                 displayScore(playerEl, playerScore);                
                 break;
             case 2:
-                logActions(`You lose this round`);
                 computerScore++;
                 displayScore(aiEl, computerScore);
                 break;
             default:
-                logActions(`It's a tie this round`);
                 break;    
         }
         
         if (playerScore == 5){
-            logActions(`You won the game. ${playerScore} - ${computerScore}`);
         }
         else if (computerScore == 5){
-            logActions(`You lost the game. ${playerScore} - ${computerScore}`);
         } 
     });
 });
@@ -60,14 +55,6 @@ function playRound(playerSelection, computerSelection){
     else {
         return 0;
     }
-}
-
-function logActions(message) {
-    const p = document.createElement("p");
-    const display = document.querySelector(".actions");
-    p.textContent = `${message}`;
-    p.classList.add("action");
-    display.appendChild(p);
 }
 
 function getComputerChoice(){
