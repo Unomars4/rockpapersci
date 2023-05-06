@@ -2,19 +2,47 @@
     font-size: 1vw * 0.5em;
 }
 
+* {
+    font-family: 'Darumadrop One', cursive;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: navajowhite;
+}
+
+main {
+    margin: 0 4em;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title, .subtitle, .sub-para {
+    text-align: center;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.subtitle ,.modal-title{
+    font-size: 1.6rem;
+    margin: 1em;
+}
+
+.sub-para {
+    font-size: 1.2rem;
+    margin: 1em;
+}
+
 .label{
-    font-size: 1rem;
-}
-
-.actions {
-    border: 1px solid Black;
-    border-radius: 0.8em;
-    margin-top: 2em;
-}
-
-.action {
-    padding: 0 1em;
-    font-style: italic;
+    font-size: 1.5rem;
+    margin: 1em;
 }
 
 .scores {
@@ -22,4 +50,54 @@
     flex: 1;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn {
+    background-color: navajowhite;
+    outline-style: hidden;
+    border: 1px solid white;
+    padding: 0.8em;
+}
+
+.btn:hover {
+    border: 1px solid black;
+    transition: ease-in-out;
+}
+
+.btn, .playerPick, .computerPick{
+    font-size: 1.4rem;
+    margin: 0 1em;    
+}
+
+.picks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.overlay {
+    background-color: rgba(127, 127, 127, 0.5);
+    position: absolute;
+    top: 1000;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.modal {
+    padding: 0.5em;
+    border: 2px solid white;
+    border-radius: 0.5em;
+    background-color: navajowhite;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

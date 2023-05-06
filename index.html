@@ -3,22 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Rubik&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
 </head>
 <body>
-    <div class="scores">
-        <p class="label">
-            Player: <span class="playerScore"></span>
-        </p>
-        <p class="label">
-            AI: <span class="computerScore"></span>
-        </p>
+    <div class="overlay">
+        <div class="modal">
+            <p class="modal-title">Congrats, You won!</p>
+            <button class="btn restart">Play Again</button>
+        </div>
     </div>
-    <button class="btn choice" value="rock">Rock</button>
-    <button class="btn choice" value="paper">Paper</button>
-    <button class="btn choice" value="scissors">Scissors</button>
+    <main>
+        <h2 class="title">Rock Paper Scissors</h2>
+        <div class="scores">
+            <p class="label">
+                Player: <span class="playerScore"></span>
+            </p>
+            <p class="label">
+                AI: <span class="computerScore"></span>
+            </p>
+        </div>
+
+        <div class="picks">
+            <p class="playerPick"></p>
+            <p class="computerPick"></p>
+        </div>
+
+        <h3 class="subtitle">Choose your weapon:</h3>
+        <p class="sub-para">First to 5 points wins the game.</p>
+        
+        <div class="buttons">
+            <button class="btn choice" value="👊">👊</button>
+            <button class="btn choice" value="📃">📃</button>
+            <button class="btn choice" value="✂️">✂️</button>
+        </div>
+    </main>
+    
 <script src="./scripts/main.js"></script>
 </body>
 </html>
