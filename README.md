@@ -3,7 +3,7 @@
 
 ## Links
 
-- Live Preview: 
+- Live Preview: https://unomars4.github.io/rockpapersci/ 
 - Repository: https://github.com/Unomars4/rockpapersci 
 
 
